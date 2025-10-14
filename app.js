@@ -1,34 +1,39 @@
-async function greet(){
-    // throw "404 pg not found";
-    return "hello";
+h1 = document.querySelector("h1");
+
+function changeColor(color, delay){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            h1.style.color = color;
+            resolve("Color changed");
+        },delay);
+    });
 }
 
-greet()
-    .then((result) =>{
-        console.log("Promise resolved");
-        console.log("Result was",result);
-    })
-    .catch((err)=>{
-        console.log("Promise rejected with error",err);
+async function demo(){
+    await changeColor("red", 1000);
+    await changeColor("green",1000);
+    await changeColor("Orange",1000);
+    changeColor("blue",1000);
+}
+
+function getNum(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            let num = Math.floor(Math.random()*10)+1;
+            console.log(num);
+            resolve();
+        },1000);
     });
+}
 
-let demo = async()=>{
-    return 5;
-};
+async function num(){
+    await getNum();
+    await getNum();
+    await getNum();
+    await getNum();
+    getNum();
+}
 
-
-
-
-// h1 = document.querySelector("h1");
-
-// function colorChange(color, delay){
-//     return new Promise((resolve,reject)=>{
-//         setTimeout(()=>{
-//             h1.style.color = color;
-//             resolve("Color changed");
-//         },delay);
-//     });
-// }
 
 // colorChange("red",1000)
 //     .then(()=>{
@@ -46,6 +51,25 @@ let demo = async()=>{
 //     .then(()=>{
 //         console.log("Blue color completed")
 //     });
+
+// async function greet(){
+//     // throw "404 pg not found";
+//     return "hello";
+// }
+
+// greet()
+//     .then((result) =>{
+//         console.log("Promise resolved");
+//         console.log("Result was",result);
+//     })
+//     .catch((err)=>{
+//         console.log("Promise rejected with error",err);
+//     });
+
+// let demo = async()=>{
+//     return 5;
+// };
+
 
 
 // function savetoDb(data){
