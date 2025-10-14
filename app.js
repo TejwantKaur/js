@@ -1,30 +1,51 @@
-h1 = document.querySelector("h1");
-
-function colorChange(color, delay){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            h1.style.color = color;
-            resolve("Color changed");
-        },delay);
-    });
+async function greet(){
+    // throw "404 pg not found";
+    return "hello";
 }
 
-colorChange("red",1000)
-    .then(()=>{
-        console.log("red color Completed");
-        return colorChange("green",1000);
+greet()
+    .then((result) =>{
+        console.log("Promise resolved");
+        console.log("Result was",result);
     })
-    .then(()=>{
-        console.log("green color completed");
-        return colorChange("Orange",1000);
-    })
-    .then(()=>{
-        console.log("Organge color completed");
-        return colorChange("blue",1000);
-    })
-    .then(()=>{
-        console.log("Blue color completed")
+    .catch((err)=>{
+        console.log("Promise rejected with error",err);
     });
+
+let demo = async()=>{
+    return 5;
+};
+
+
+
+
+// h1 = document.querySelector("h1");
+
+// function colorChange(color, delay){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             h1.style.color = color;
+//             resolve("Color changed");
+//         },delay);
+//     });
+// }
+
+// colorChange("red",1000)
+//     .then(()=>{
+//         console.log("red color Completed");
+//         return colorChange("green",1000);
+//     })
+//     .then(()=>{
+//         console.log("green color completed");
+//         return colorChange("Orange",1000);
+//     })
+//     .then(()=>{
+//         console.log("Organge color completed");
+//         return colorChange("blue",1000);
+//     })
+//     .then(()=>{
+//         console.log("Blue color completed")
+//     });
 
 
 // function savetoDb(data){
