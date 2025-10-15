@@ -1,21 +1,21 @@
 // promise + async + await
-// async function getfacts(){
-//     try{
-//     let res = await fetch(url) 
-//     // jdo tak fetch ni hunda wait kero, then next kmm
-//     let data = await res.json();
-//     console.log(data.fact);
 
-//     let res2 = await fetch(url)
-//     let data2 = await res2.json();
-//     console.log(data2.fact);
+async function getfacts(){
+    try{
+    let res = await fetch(url) 
+    // jdo tak fetch ni hunda wait kero, then next kmm
+    let data = await res.json();
+    console.log(data.fact);
 
-//     }
-//     catch(e){
-//         console.log(e);
-//     }
-//     console.log("Bye");
-// }
+    let res2 = await fetch(url)
+    let data2 = await res2.json();
+    console.log(data2.fact);
+    }
+    catch(e){
+        console.log(e);
+    }
+    console.log("Bye");
+}
 
 // fetch(url)
 //     .then(res => {
@@ -35,5 +35,5 @@
 //     })
 //     .catch((err)=>{
 //         console.log(err)
-//     });
+//     })
 
