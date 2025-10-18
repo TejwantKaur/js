@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "figlet": "^1.9.3"
+  }
+  
+}
