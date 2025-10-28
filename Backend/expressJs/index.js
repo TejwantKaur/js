@@ -41,6 +41,22 @@ app.get("/search",(req,res)=>{
 
 })
 
+app.get("/rolldice",(req,res)=>{
+    let diceval= Math.floor(Math.random()*6) + 1;
+    res.render("rolldice.ejs",{diceval});
+})
+
+app.get("/ig/:username",(req,res)=>{
+    let {username} = req.params;
+    const intsaData = require("./data.json");
+    const data = intsaData[username];
+    if(data)
+      res.render("insta.ejs",{data});
+    else
+      res.render("error.ejs")
+
+})
+
 app.get(/.*/, (req, res) => {
   res.status(404).send("Path doesn't exist");
 });
