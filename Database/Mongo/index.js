@@ -30,13 +30,30 @@ const User = mongoose.model("User", userSchema);
 //   .then((res)=> {console.log(res);})
 //   .catch((err)=> {console.log(err)})
 
-const user2 = new User({
-  name: "eve",
-  email: "eve123@gmail.com",
-  age: 48,
-})
+// const user2 = new User({
+//   name: "eve",
+//   email: "eve123@gmail.com",
+//   age: 48,
+// })
 
-user2
-  .save()
-  .then((res)=> {console.log(res);})
+// user2
+//   .save()
+//   .then((res)=> {console.log(res);})
+//   .catch((err)=> {console.log(err)})
+
+// insert multiple
+// User.insertMany([
+//   {name: "peter", email: "peter@gmail.com", age: 50},
+//   {name: "bruce", email: "bruce@gmail.com", age: 27},
+//   {name: "tony", email: "tony@gmail.com", age: 18},
+// ]).then((res)=> {console.log(res)})
+//   .catch((err)=> {console.log(err)})
+
+
+User.find({age: { $lt:30 }})
+  .then((res)=> {console.log(res)})
   .catch((err)=> {console.log(err)})
+
+// User.findById("691eb495bbc6d5838b274b15")
+//   .then((res)=> {console.log(res)})
+//   .catch((err)=> {console.log(err)})
