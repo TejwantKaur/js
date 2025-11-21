@@ -4,8 +4,10 @@ const mongoose = require('mongoose')
 const path = require("path")
 const Chat = require("./models/chat")
 
-app.set("view", path.join(__dirname,"views"))
+app.set("views", path.join(__dirname,"views"))
 app.set("view engine", "ejs")
+
+app.use(express.static(path.join(__dirname,"public")))
 
 main()
   .then(()=> console.log("Connection successfull"))
@@ -23,6 +25,12 @@ async function main() {
 // chat1.save().then((res)=>{
 //   console.log(res);
 // })
+
+app.get("/chats", async(req,res)=>{
+  let chats = await Chat.find();
+  // console.log(chats);
+  res.render("index.ejs",{chats})
+})
 
 app.get('/', (req, res) => {
 res.send('root is working')

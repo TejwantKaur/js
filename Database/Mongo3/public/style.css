@@ -1,0 +1,12 @@
+.chat{
+    background-color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+body{
+    background-color: rgb(73, 156, 179);
+    padding: 20px;
+    border-radius: 16px;
+}
